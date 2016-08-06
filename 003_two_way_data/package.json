@@ -1,5 +1,5 @@
 {
-  "name": "002_send_data_to_node",
+  "name": "003_two_way_data",
   "version": "0.0.1",
   "description": "Just learning a bit about Vue.js",
   "main": "app.js",

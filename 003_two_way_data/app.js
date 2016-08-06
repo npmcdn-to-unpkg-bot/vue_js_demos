@@ -7,7 +7,8 @@ app.use(bodyParser.json());
 
 app.post('/the_great_mythical_api_endpoint', function (req, res) {
   console.log(req.body);
-  res.json({"status":"success"});
+  var your_name = req.body.first_string;
+  res.json({"status":"success","name": your_name});
 });
 
 var appPort=8080;
