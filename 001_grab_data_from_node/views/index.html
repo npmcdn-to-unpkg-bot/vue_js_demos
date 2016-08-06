@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grab Some Data from the Server</title>
+  <script src="https://npmcdn.com/vue@latest/dist/vue.js"></script>
+  <script src="https://npmcdn.com/vue-resource@0.9.3/dist/vue-resource.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Inhale data from the server</h1>
+    <p>{{local_sample}}</p>
+    <p>{{remote_sample}}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      ready: function(){
+        this.$http.get('/widget-info').then((response) => {
+          //this.remote_sample = JSON.parse(response.body).server_data;
+          this.remote_sample = response.json().server_data;
+
+          console.log(response);
+        }, (response) => {
+          console.log("no bueno:\n" + response);
+        });
+
+      },
+      data:{
+        local_sample: "here is some local data",
+        remote_sample: null
+      }
+
+    })
+  </script>
+</body>
+</html>
